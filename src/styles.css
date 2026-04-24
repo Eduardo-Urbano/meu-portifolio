@@ -132,6 +132,19 @@
   --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* esconder scrollbar (Chrome, Edge, Safari) */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  
+
+  /* Firefox */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
 .dark {
   /* Same palette — site is dark by default */
   --background: oklch(0.16 0.02 270);

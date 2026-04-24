@@ -31,8 +31,10 @@ export function Navbar() {
             scrolled ? "glass shadow-card" : ""
           }`}
         >
-          <a href="#home" className="flex items-center gap-2 font-semibold tracking-tight">
-            <span className="inline-block h-8 w-8 rounded-lg bg-gradient-primary shadow-glow" />
+          <a href="#home" className="flex items-center gap-3 font-semibold tracking-tight">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary shadow-glow text-[10px] font-medium tracking-tight text-white">
+              {"<E/U>"}
+            </span>
             <span className="text-lg">
               dev<span className="text-gradient">.Urban</span>
             </span>

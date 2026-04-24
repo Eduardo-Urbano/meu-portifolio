@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const GithubSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18} {...props}>
@@ -17,26 +18,8 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-hero"
-    >
-      {/* Stars / particles */}
-      <div className="absolute inset-0 pointer-events-none opacity-60">
-        {Array.from({ length: 40 }).map((_, i) => (
-          <span
-            key={i}
-            className="absolute block rounded-full bg-foreground/70"
-            style={{
-              top: `${(i * 53) % 100}%`,
-              left: `${(i * 37) % 100}%`,
-              width: `${(i % 3) + 1}px`,
-              height: `${(i % 3) + 1}px`,
-              opacity: ((i % 5) + 2) / 10,
-              animation: `float ${4 + (i % 5)}s ease-in-out ${i * 0.1}s infinite`,
-            }}
-          />
-        ))}
-      </div>
-
+      className="relative min-h-screen flex items-center overflow-hidden bg-hero">
+      <div className="absolute inset-0 bg-background/20"/>
       <div className="container mx-auto px-6 relative z-10 pt-32 pb-20">
         <div className="max-w-4xl">
           <motion.span
@@ -65,9 +48,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed"
           >
-            Desenvolvedor full-stack especializado em criar produtos digitais{" "}
-            <span className="text-foreground">rápidos, modernos e elegantes</span> — com foco em
-            React, TypeScript e experiências de usuário memoráveis.
+            Desenvolvedor focado em transformar ideias em aplicações web funcionais.
+            Trabalho com React, TypeScript e integração com APIs, criando soluções simples,
+            rápidas e prontas para uso.
           </motion.p>
 
           <motion.div
@@ -90,12 +73,12 @@ export function Hero() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 font-medium text-foreground transition-colors hover:bg-foreground/10"
             >
-              Contratar agora
+              Entrar em contato
             </a>
 
             <div className="flex items-center gap-2 ml-2">
               <a
-                href="https://github.com"
+                href="https://github.com/Eduardo-Urbano"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -104,7 +87,7 @@ export function Hero() {
                 <GithubSvg />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/edu-urbano/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -115,7 +98,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          <motion.div
+          {/*<motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -131,9 +114,11 @@ export function Hero() {
                 <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
               </div>
             ))}
-          </motion.div>
+          </motion.div>*/}
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
     </section>
+    
   );
 }

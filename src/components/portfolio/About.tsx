@@ -4,23 +4,23 @@ import { Code2, Rocket, Sparkles, Users } from "lucide-react";
 const features = [
   {
     icon: Code2,
-    title: "Código limpo",
-    desc: "Arquitetura escalável, testada e fácil de manter.",
+    title: "Código organizado",
+    desc: "Projetos estruturados com boas práticas e fácil manutenção.",
   },
   {
     icon: Rocket,
     title: "Performance",
-    desc: "Sites rápidos com Lighthouse 95+ por padrão.",
+    desc: "Foco em aplicações leves, rápidas e bem otimizadas.",
   },
   {
     icon: Sparkles,
-    title: "Design refinado",
-    desc: "Interfaces modernas, com atenção a cada detalhe.",
+    title: "Interface moderna",
+    desc: "Desenvolvimento de interfaces responsivas e agradáveis ao usuário.",
   },
   {
     icon: Users,
-    title: "Comunicação clara",
-    desc: "Entregas frequentes e processo transparente.",
+    title: "Aprendizado constante",
+    desc: "Sempre evoluindo e aplicando novos conhecimentos nos projetos.",
   },
 ];
 
@@ -30,14 +30,19 @@ const stack = [
   "Next.js",
   "Tailwind CSS",
   "Node.js",
+  "PHP",
+  "Laravel",
+  "Java",
+  "Spring Boot",
   "PostgreSQL",
-  "Framer Motion",
-  "Figma",
+  "MySQL",
+  "MongoDB"
 ];
 
 export function About() {
   return (
-    <section id="about" className="relative py-32">
+    <section id="about" className="relative py-32 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-background/0 pointer-events-none" />
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           <motion.div
@@ -52,13 +57,13 @@ export function About() {
               Construindo a web com <span className="text-gradient">propósito</span>.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Trabalho com desenvolvimento web há mais de 5 anos, ajudando startups e empresas a
-              transformarem ideias em produtos digitais polidos. Meu foco é unir engenharia
-              sólida e design pensado para o usuário.
+              Desenvolvedor web em formação, com experiência prática na criação de interfaces modernas e integração com APIs. Possuo uma base sólida em lógica de programação e venho desenvolvendo projetos que simulam cenários reais, incluindo aplicações completas com front-end e back-end.
             </p>
+
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Quando não estou codando, gosto de estudar tipografia, motion design e contribuir
-              com projetos open-source.
+              Atualmente, estou focado em evoluir como desenvolvedor full stack, utilizando tecnologias como React, TypeScript e Node.js, além de aprofundar meus conhecimentos em back-end com Java e Spring Boot.
+              
+              Busco oportunidades freelance e projetos onde eu possa aplicar minhas habilidades e continuar evoluindo.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-2">
@@ -73,7 +78,7 @@ export function About() {
             </div>
           </motion.div>
 
-          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5 z-10">
             {features.map((f, i) => (
               <motion.div
                 key={f.title}

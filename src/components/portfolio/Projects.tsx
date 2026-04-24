@@ -56,7 +56,7 @@ export function Projects() {
                     <div className="text-xs text-muted-foreground">{p.year} · {p.role}</div>
                     <h3 className="mt-1 text-2xl font-semibold tracking-tight">{p.title}</h3>
                   </div>
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow transition-transform group-hover:rotate-45">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow transition-transform group-hover:rotate-45 cursor-pointer">
                     <ArrowUpRight size={18} />
                   </span>
                 </div>

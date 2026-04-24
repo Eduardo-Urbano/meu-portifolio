@@ -4,9 +4,28 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <>
+      <div className="fixed inset-0 z-1 pointer-events-none opacity-70">
+        {Array.from({ length: 40 }).map((_, i) => (
+          <span
+            key={i}
+            className="absolute block rounded-full bg-foreground/70"
+            style={{
+              top: `${(i * 53) % 100}%`,
+              left: `${(i * 37) % 100}%`,
+              width: `${(i % 3) + 1}px`,
+              height: `${(i % 3) + 1}px`,
+              opacity: ((i % 5) + 2) / 10,
+              animation: `float ${4 + (i % 5)}s ease-in-out ${i * 0.1}s infinite`,
+            }}
+          />
+        ))}
+      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }

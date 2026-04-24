@@ -57,7 +57,7 @@ export function Contact() {
                   <a
                     href="https://linkedin.com/in/edu-urbano"
                     target="_blank"
-                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-all hover:translate-x-1wwha"
                   >
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/5">
                       In
@@ -67,7 +67,7 @@ export function Contact() {
                   <a
                     href="https://github.com/Eduardo-Urbano"
                     target="_blank"
-                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-all hover:translate-x-1"
                   >
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/5">
                       <svg
@@ -106,7 +106,7 @@ export function Contact() {
                   <div>
                     <a
                       href="mailto:eduardosurbano004@gmail.com"
-                      className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground"
+                      className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-all hover:translate-x-1"
                     >
                       <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/5">
                         <Mail size={16} />
@@ -178,7 +178,7 @@ export function Contact() {
 
                 <button
                   type="submit"
-                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3 font-medium text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3 font-medium text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   {sent ? "Mensagem enviada ✓" : (
                     <>
