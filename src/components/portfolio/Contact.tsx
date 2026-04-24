@@ -57,7 +57,7 @@ export function Contact() {
                   <a
                     href="https://linkedin.com/in/edu-urbano"
                     target="_blank"
-                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-all hover:translate-x-1wwha"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-all hover:translate-x-1"
                   >
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/5">
                       In
