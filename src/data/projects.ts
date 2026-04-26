@@ -38,7 +38,7 @@ export const projects: Project[] = [
       "Sistema web desenvolvido para uma doceria gourmet com foco em aumentar as vendas e melhorar a gestão do negócio. A aplicação permite exibir produtos de forma organizada, facilitar o acesso dos clientes e otimizar a administração interna. Desenvolvido com front-end moderno e back-end em Java com Spring Boot, simulando um cenário real de aplicação comercial.",
     technologies: ["HTML", "Tailwindcss", "TypeScript", "Java", "Spring Boot"],
     images: [lingu1],
-    link: "https://github.com/Eduardo-Urbano/LinguRemi",
+    link: "https://eduardo-urbano.github.io/LinguRemi/",
     year: "2025",
     role: "Full Stack Developer",
   },
