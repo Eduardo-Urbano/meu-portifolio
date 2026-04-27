@@ -1,6 +1,11 @@
 import tostao1 from "@/assets/TostaoBank/1.png";
 import tostao2 from "@/assets/TostaoBank/2.png";
 
+import tostaoBanner from "@/assets/TostaoBank/TostaoBanner.png";
+import linguBanner from "@/assets/LinguRemi/LinguRemiBanner.png";
+import agendaBanner from "@/assets/agendaAluno/AgendaAlunoBanner.png";
+//import newsBanner from "@/assets/NewsFlow/banner.jpg";
+
 import lingu1 from "@/assets/LinguRemi/1.jpg";
 
 import agenda1 from "@/assets/agendaAluno/1.png";
@@ -11,6 +16,7 @@ export type Project = {
   description: string;
   longDescription: string;
   technologies: string[];
+  banner: string;
   images: string[];
   link: string;
   year: string;
@@ -25,6 +31,7 @@ export const projects: Project[] = [
     longDescription:
       "Projeto acadêmico simulando um sistema bancário completo. Possui funcionalidades como autenticação de usuários, dashboard com dados da conta, transferências (Pix) e recarga de serviços.\n\nA aplicação conta com uma API própria, consumida tanto pela versão web quanto por uma versão mobile desenvolvida em Kotlin, permitindo que o mesmo usuário utilize sua conta em ambas as plataformas.\n\nO projeto continua em evolução, com foco na adição de novas funcionalidades e melhorias na arquitetura.",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "Java", "Spring Boot", "MySQL", "Kotlin"],
+    banner: tostaoBanner,
     images: [tostao1, tostao2],
     link: "https://github.com/Giovanni-Franca/Tostao-Bank",
     year: "2024",
@@ -37,6 +44,7 @@ export const projects: Project[] = [
     longDescription:
       "Sistema web desenvolvido para uma doceria gourmet com foco em aumentar as vendas e melhorar a gestão do negócio. A aplicação permite exibir produtos de forma organizada, facilitar o acesso dos clientes e otimizar a administração interna. Desenvolvido com front-end moderno e back-end em Java com Spring Boot, simulando um cenário real de aplicação comercial.",
     technologies: ["HTML", "Tailwindcss", "TypeScript", "Java", "Spring Boot"],
+    banner: linguBanner,
     images: [lingu1],
     link: "https://eduardo-urbano.github.io/LinguRemi/",
     year: "2025",
@@ -49,6 +57,7 @@ export const projects: Project[] = [
     longDescription:
       "Aplicação web desenvolvida para auxiliar estudantes na organização da rotina acadêmica, permitindo o controle de tarefas e prazos. O front-end foi construído com React, TypeScript e Tailwind CSS, consumindo uma API desenvolvida separadamente em Python para gerenciamento dos dados.",
     technologies: ["React", "TailwindCSS", "TypeScript", "Python"],
+    banner: agendaBanner,
     images: [agenda1],
     link: "https://github.com/JarJv/agenda-do-aluno",
     year: "2025",

@@ -40,7 +40,7 @@ export function Projects() {
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <img
-                  src={p.images[0]}
+                  src={p.banner}
                   alt={p.title}
                   width={1280}
                   height={800}
