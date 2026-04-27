@@ -11,7 +11,6 @@ type Props = {
 export function ProjectModal({ project, onClose }: Props) {
   const [current, setCurrent] = useState(0);
 
-  // fechar com ESC + travar scroll
   useEffect(() => {
     if (!project) return;
 
@@ -19,7 +18,6 @@ export function ProjectModal({ project, onClose }: Props) {
 
     document.addEventListener("keydown", onKey);
 
-    // trava scroll do fundo
     document.body.style.overflow = "hidden";
 
     return () => {
@@ -29,7 +27,6 @@ export function ProjectModal({ project, onClose }: Props) {
     };
   }, [project, onClose]);
 
-  // resetar imagem quando trocar de projeto
   useEffect(() => {
     setCurrent(0);
   }, [project]);
@@ -76,11 +73,25 @@ export function ProjectModal({ project, onClose }: Props) {
             </button>
 
             {/*CARROSSEL */}
-            <div className="h-[220px] sm:h-[280px] md:h-[320px] overflow-hidden rounded-t-3xl relative">
+            <div
+              className={`overflow-hidden rounded-t-3xl relative ${
+                project.images[current].includes("mobile")
+                  ? "h-[420px] md:h-[460px]"
+                  : project.title === "Agenda do Aluno"
+                  ? "h-[320px] sm:h-[380px] md:h-[420px]"
+                  : "h-[220px] sm:h-[280px] md:h-[320px]"
+              }`}
+            >
               <img
                 src={project.images[current]}
                 alt={project.title}
-                className="h-full w-full object-cover"
+                className={`h-full w-full ${
+                  project.images[current].includes("mobile")
+                    ? "object-contain bg-black/20 p-2"
+                    : project.title === "Agenda do Aluno"
+                    ? "object-contain bg-[radial-gradient(circle_at_center,_rgba(139,92,246,0.22),_rgba(8,8,30,0.92)_75%)] p-1"
+                    : "object-cover"
+                }`}
               />
 
               {project.images.length > 1 && (
@@ -106,7 +117,7 @@ export function ProjectModal({ project, onClose }: Props) {
 
             {/* indicadores */}
             {project.images.length > 1 && (
-              <div className="flex justify-center p-6 md:p-8 gap-2 mt-4">
+              <div className="flex justify-center gap-2 mt-3">
                 {project.images.map((_, i) => (
                   <div
                     key={i}
