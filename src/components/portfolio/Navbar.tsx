@@ -26,12 +26,15 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6">
-        <nav
+        <nav aria-label="Navegação principal"
           className={`flex items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 ${
             scrolled ? "glass shadow-card" : ""
           }`}
         >
-          <a href="#home" className="flex items-center gap-3 font-semibold tracking-tight">
+          <a href="#home" 
+            aria-label="Ir para o início do portfólio"
+            className="flex items-center gap-3 font-semibold tracking-tight"
+          >
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary shadow-glow text-[10px] font-medium tracking-tight text-white">
               {"<E/U>"}
             </span>
@@ -55,23 +58,27 @@ export function Navbar() {
 
           <a
             href="#contact"
+            aria-label="Ir para a seção de contato"
             className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
           >
-            Vamos conversar
+            Falar sobre projeto
           </a>
 
           <button
             type="button"
-            aria-label="Abrir menu"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
             onClick={() => setOpen((v) => !v)}
             className="md:hidden rounded-md p-2 text-foreground"
           >
-            {open ? <X size={20} /> : <Menu size={20} />}
+            {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>
         </nav>
 
         {open && (
-          <div className="md:hidden mt-3 glass rounded-2xl p-5 animate-fade-in">
+          <div 
+            className="md:hidden mt-3 glass rounded-2xl p-5 animate-fade-in"
+            role="menu"
+          >
             <ul className="flex flex-col gap-4">
               {links.map((l) => (
                 <li key={l.href}>
@@ -90,7 +97,7 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   className="inline-flex items-center rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-primary-foreground"
                 >
-                  Vamos conversar
+                  Falar sobre projeto
                 </a>
               </li>
             </ul>

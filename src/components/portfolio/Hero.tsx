@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useState, useEffect } from "react";
 
 const GithubSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18} {...props}>
@@ -19,7 +18,7 @@ export function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden bg-hero">
-      <div className="absolute inset-0 bg-background/20"/>
+      <div className="absolute inset-0 bg-background/20" aria-hidden="true" />
       <div className="container mx-auto px-6 relative z-10 pt-32 pb-20">
         <div className="max-w-4xl">
           <motion.span
@@ -48,7 +47,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed"
           >
-            Desenvolvedor focado em transformar ideias em aplicações web funcionais.
+            Desenvolvedor full stack focado em transformar ideias em aplicações web funcionais.
             Trabalho com React, TypeScript e integração com APIs, criando soluções simples,
             rápidas e prontas para uso.
           </motion.p>
@@ -81,7 +80,7 @@ export function Hero() {
                 href="https://github.com/Eduardo-Urbano"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="GitHub"
+                aria-label="Acessar GitHub de Eduardo Urbano"
                 className="rounded-full glass p-3 text-muted-foreground transition-colors hover:text-foreground"
               >
                 <GithubSvg />
@@ -90,7 +89,7 @@ export function Hero() {
                 href="https://www.linkedin.com/in/edu-urbano/"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="LinkedIn"
+                aria-label="Acessar LinkedIn de Eduardo Urbano"
                 className="rounded-full glass p-3 text-muted-foreground transition-colors hover:text-foreground"
               >
                 <LinkedinSvg />
@@ -117,7 +116,10 @@ export function Hero() {
           </motion.div>*/}
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
+      <div
+        className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-background pointer-events-none"
+        aria-hidden="true"
+      />
     </section>
     
   );

@@ -9,38 +9,38 @@ type Props = {
 };
 
 export function ProjectModal({ project, onClose }: Props) {
-  const [current, setCurrent] = useState(0);
+    const [current, setCurrent] = useState(0);
 
-  useEffect(() => {
-    if (!project) return;
+    useEffect(() => {
+      if (!project) return;
 
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+      const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
 
-    document.addEventListener("keydown", onKey);
+      document.addEventListener("keydown", onKey);
 
-    document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
 
-    return () => {
-      document.removeEventListener("keydown", onKey);
+      return () => {
+        document.removeEventListener("keydown", onKey);
 
-      document.body.style.overflow = "";
+        document.body.style.overflow = "";
+      };
+    }, [project, onClose]);
+
+    useEffect(() => {
+      setCurrent(0);
+    }, [project]);
+
+    const next = () => {
+      if (!project) return;
+      setCurrent((prev) => (prev + 1) % project.images.length);
     };
-  }, [project, onClose]);
 
-  useEffect(() => {
-    setCurrent(0);
-  }, [project]);
-
-  const next = () => {
-    if (!project) return;
-    setCurrent((prev) => (prev + 1) % project.images.length);
-  };
-
-  const prev = () => {
-    if (!project) return;
-    setCurrent((prev) =>
-      prev === 0 ? project.images.length - 1 : prev - 1
-    );
+    const prev = () => {
+      if (!project) return;
+      setCurrent((prev) =>
+        prev === 0 ? project.images.length - 1 : prev - 1
+      );
   };
 
   return (
@@ -51,6 +51,9 @@ export function ProjectModal({ project, onClose }: Props) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-modal-title"
           className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-background/70 backdrop-blur-md"
           onClick={onClose}
         >
@@ -69,7 +72,7 @@ export function ProjectModal({ project, onClose }: Props) {
               aria-label="Fechar"
               className="absolute right-4 top-4 z-10 rounded-full bg-background/10 p-2 text-foreground backdrop-blur transition-colors hover:bg-background cursor-pointer"
             >
-              <X size={18} />
+              <X size={18} aria-hidden="true" />
             </button>
 
             {/*CARROSSEL */}
@@ -84,7 +87,7 @@ export function ProjectModal({ project, onClose }: Props) {
             >
               <img
                 src={project.images[current]}
-                alt={project.title}
+                alt={`Imagem do projeto ${project.title}`}
                 className={`h-full w-full ${
                   project.images[current].includes("mobile")
                     ? "object-contain bg-black/20 p-2"
@@ -97,16 +100,14 @@ export function ProjectModal({ project, onClose }: Props) {
               {project.images.length > 1 && (
                 <>
                   {/* anterior */}
-                  <button
-                    onClick={prev}
+                  <button type="button" onClick={prev} aria-label="Imagem anterior"
                     className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/0 text-white px-3 py-1 rounded-lg cursor-pointer"
                   >
                     {"<"}
                   </button>
 
                   {/* próximo */}
-                  <button
-                    onClick={next}
+                  <button type="button" onClick={next} aria-label="Próxima imagem"
                     className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/0 text-white px-3 py-1 rounded-lg cursor-pointer"
                   >
                     {">"}
@@ -121,6 +122,7 @@ export function ProjectModal({ project, onClose }: Props) {
                 {project.images.map((_, i) => (
                   <div
                     key={i}
+                    aria-hidden="true"
                     className={`h-2 w-2 rounded-full transition-all ${
                       i === current ? "bg-white scale-110" : "bg-white/40"
                     }`}
@@ -138,7 +140,10 @@ export function ProjectModal({ project, onClose }: Props) {
                 <span>{project.role}</span>
               </div>
 
-              <h3 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight">
+              <h3
+                id="project-modal-title"
+                className="mt-4 text-3xl md:text-4xl font-bold tracking-tight"
+              >
                 {project.title}
               </h3>
 
@@ -150,16 +155,16 @@ export function ProjectModal({ project, onClose }: Props) {
                 <h4 className="text-xs uppercase tracking-[0.2em] text-accent">
                   Tecnologias
                 </h4>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <ul className="mt-3 flex flex-wrap gap-2" aria-label={`Tecnologias usadas em ${project.title}`}>
                   {project.technologies.map((t) => (
-                    <span
+                    <li
                       key={t}
-                      className="rounded-full border border-border bg-foreground/5 px-3 py-1 text-xs"
+                      className="list-none rounded-full border border-border bg-foreground/5 px-3 py-1 text-xs"
                     >
                       {t}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
 
               <div className="mt-8">
@@ -170,7 +175,7 @@ export function ProjectModal({ project, onClose }: Props) {
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
                 >
                   Visitar projeto
-                  <ExternalLink size={16} />
+                  <ExternalLink size={16} aria-hidden="true" />
                 </a>
               </div>
             </div>

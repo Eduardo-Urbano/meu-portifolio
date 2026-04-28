@@ -7,6 +7,7 @@ import { useLenis } from "@/hooks/useLenis";
 
 export default function Home() {
   useLenis();
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />

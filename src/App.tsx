@@ -5,7 +5,10 @@ import NotFound from "./pages/NotFound";
 export default function App() {
   return (
     <>
-      <div className="fixed inset-0 z-1 pointer-events-none opacity-70">
+      <div
+        className="fixed inset-0 z-0 pointer-events-none opacity-70"
+        aria-hidden="true"
+      >
         {Array.from({ length: 40 }).map((_, i) => (
           <span
             key={i}
@@ -22,10 +25,13 @@ export default function App() {
         ))}
       </div>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      {/* Conteúdo principal */}
+      <div className="relative z-10">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </>
   );
 }

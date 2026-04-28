@@ -42,7 +42,10 @@ const stack = [
 export function About() {
   return (
     <section id="about" className="relative py-32 overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-background/0 pointer-events-none" />
+      <div
+        className="absolute top-0 left-0 w-full h-32 bg-gradient-to-t from-transparent to-background/0 pointer-events-none"
+        aria-hidden="true"
+      />
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           <motion.div
@@ -57,25 +60,23 @@ export function About() {
               Construindo a web com <span className="text-gradient">propósito</span>.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Desenvolvedor web em formação, com experiência prática na criação de interfaces modernas e integração com APIs. Possuo uma base sólida em lógica de programação e venho desenvolvendo projetos que simulam cenários reais, incluindo aplicações completas com front-end e back-end.
+              Desenvolvedor full stack com experiência prática na criação de interfaces modernas, integração com APIs e desenvolvimento de aplicações web completas. Possuo base sólida em lógica de programação e venho construindo projetos que simulam cenários reais de mercado, unindo front-end, back-end e foco em usabilidade.
             </p>
 
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Atualmente, estou focado em evoluir como desenvolvedor full stack, utilizando tecnologias como React, TypeScript e Node.js, além de aprofundar meus conhecimentos em back-end com Java e Spring Boot.
-              
-              Busco oportunidades freelance e projetos onde eu possa aplicar minhas habilidades e continuar evoluindo.
+              Atualmente, aprofundo minha atuação em React, TypeScript, Node.js, Java e Spring Boot, com foco em desenvolver soluções modernas, escaláveis e orientadas a resultados. Busco oportunidades freelance e projetos desafiadores onde eu possa aplicar minhas habilidades, gerar valor e evoluir continuamente como desenvolvedor.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-2">
+            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Tecnologias principais">
               {stack.map((s) => (
-                <span
+                <li
                   key={s}
-                  className="rounded-full glass px-3 py-1 text-xs text-muted-foreground"
+                  className="rounded-full glass px-3 py-1 text-xs text-muted-foreground list-none"
                 >
                   {s}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.div>
 
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5 z-10">
@@ -89,7 +90,7 @@ export function About() {
                 className="group glass rounded-2xl p-6 transition-all hover:-translate-y-1 hover:shadow-elegant"
               >
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-glow">
-                  <f.icon size={20} />
+                  <f.icon size={20} aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 text-lg font-semibold">{f.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>

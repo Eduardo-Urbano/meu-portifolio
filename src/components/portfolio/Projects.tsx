@@ -22,57 +22,77 @@ export function Projects() {
             Projetos <span className="text-gradient">selecionados</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Uma seleção dos trabalhos mais recentes. Clique em qualquer card para ver detalhes.
+            Uma seleção de projetos full stack, aplicações web e APIs desenvolvidas para estudo, portfólio e soluções práticas.
           </p>
         </motion.div>
 
         <div className="mt-14 grid md:grid-cols-2 gap-6">
           {projects.map((p, i) => (
-            <motion.button
-              type="button"
+            <motion.article
               key={p.id}
-              onClick={() => setActive(p)}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: (i % 2) * 0.1 }}
-              className="group relative text-left overflow-hidden rounded-3xl glass transition-all duration-500 hover:-translate-y-2 hover:shadow-elegant"
+              className="group relative overflow-hidden rounded-3xl"
             >
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={p.banner}
-                  alt={p.title}
-                  width={1280}
-                  height={800}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-90" />
-              </div>
+              <button
+                type="button"
+                onClick={() => setActive(p)}
+                className="w-full text-left glass transition-all duration-500 hover:-translate-y-2 hover:shadow-elegant"
+                aria-label={`Ver detalhes do projeto ${p.title}`}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src={p.banner}
+                    alt={`Banner do projeto ${p.title}`}
+                    width={1280}
+                    height={800}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-90"
+                    aria-hidden="true"
+                  />
+                </div>
 
-              <div className="absolute inset-x-0 bottom-0 p-7">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <div className="text-xs text-muted-foreground">{p.year} · {p.role}</div>
-                    <h3 className="mt-1 text-2xl font-semibold tracking-tight">{p.title}</h3>
-                  </div>
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow transition-transform group-hover:rotate-45 cursor-pointer">
-                    <ArrowUpRight size={18} />
-                  </span>
-                </div>
-                <p className="mt-3 text-sm text-muted-foreground line-clamp-2">{p.description}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {p.technologies.slice(0, 4).map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full bg-foreground/5 border border-border px-2.5 py-0.5 text-[11px] text-muted-foreground"
-                    >
-                      {t}
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <div className="text-xs text-muted-foreground">
+                        {p.year} · {p.role}
+                      </div>
+                      <h3 className="mt-1 text-2xl font-semibold tracking-tight">
+                        {p.title}
+                      </h3>
+                    </div>
+
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow transition-transform group-hover:rotate-45 cursor-pointer">
+                      <ArrowUpRight size={18} aria-hidden="true" />
                     </span>
-                  ))}
+                  </div>
+
+                  <p className="mt-3 text-sm text-muted-foreground line-clamp-2">
+                    {p.description}
+                  </p>
+
+                  <ul
+                    className="mt-4 flex flex-wrap gap-1.5"
+                    aria-label={`Tecnologias utilizadas em ${p.title}`}
+                  >
+                    {p.technologies.slice(0, 4).map((t) => (
+                      <li
+                        key={t}
+                        className="list-none rounded-full bg-foreground/5 border border-border px-2.5 py-0.5 text-[11px] text-muted-foreground"
+                      >
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            </motion.button>
+              </button>
+            </motion.article>
           ))}
         </div>
       </div>
