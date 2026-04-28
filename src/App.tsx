@@ -5,7 +5,7 @@ import NotFound from "./pages/NotFound";
 export default function App() {
   return (
     <>
-      {/*<div
+      <div
         className="fixed inset-0 z-0 pointer-events-none opacity-70"
         aria-hidden="true"
       >
@@ -23,7 +23,7 @@ export default function App() {
             }}
           />
         ))}
-      </div>*/}
+      </div>
 
       {/* Conteúdo principal */}
       <div className="relative z-10">
