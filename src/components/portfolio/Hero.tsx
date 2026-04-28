@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import devPixel from "@/assets/dev-pixel.png";
 
 const GithubSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18} {...props}>
@@ -118,12 +119,11 @@ export function Hero() {
             aria-hidden="true"
           >
             <div className="relative">
-              {/* Glow */}
+
               <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full scale-125" />
 
-              {/* Pixel Art / GIF */}
               <img
-                src="/src/assets/dev-pixel.png"
+                src={devPixel}
                 alt="Ilustração em pixel art de Eduardo Urbano programando no espaço"
                 className="
                   pixel-hero
