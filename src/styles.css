@@ -174,6 +174,20 @@
   --animate-float: float 6s ease-in-out infinite;
 }
 
+@keyframes floatPixel {
+  0%, 100% {
+    transform: translateY(0px) scaleX(-1);
+  }
+  50% {
+    transform: translateY(-10px) scaleX(-1);
+  }
+}
+
+.pixel-hero {
+  animation: floatPixel 4s ease-in-out infinite;
+  image-rendering: pixelated;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

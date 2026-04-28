@@ -100,6 +100,46 @@ export function Hero() {
             </div>
           </motion.div>
 
+          <div
+            className="
+              mt-10
+              flex
+              justify-center
+              lg:absolute
+              lg:right-10
+              lg:bottom-10
+              xl:right-24
+              lg:mt-0
+              pointer-events-none
+              z-0
+              w-full
+              lg:w-auto
+            "
+            aria-hidden="true"
+          >
+            <div className="relative">
+              {/* Glow */}
+              <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full scale-125" />
+
+              {/* Pixel Art / GIF */}
+              <img
+                src="/src/assets/dev-pixel.png"
+                alt="Ilustração em pixel art de Eduardo Urbano programando no espaço"
+                className="
+                  pixel-hero
+                  scale-x-[-1]
+                  w-[160px]
+                  sm:w-[190px]
+                  md:w-[220px]
+                  lg:w-[320px]
+                  xl:w-[420px]
+                  opacity-80
+                  sm:opacity-90
+                "
+              />
+            </div>
+          </div>
+
           {/*<motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
