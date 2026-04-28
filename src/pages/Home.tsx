@@ -9,7 +9,7 @@ export default function Home() {
   useLenis();
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="relative z-10 min-h-screen bg-tranparent text-foreground">
       <Navbar />
       <Hero />
       <About />

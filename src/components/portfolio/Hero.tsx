@@ -17,8 +17,11 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-hero">
-      <div className="absolute inset-0 bg-background/20" aria-hidden="true" />
+      className="relative min-h-screen flex items-center overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-hero opacity-80" aria-hidden="true" />
+      <div className="absolute inset-0 bg-background/10" aria-hidden="true" />
+
       <div className="container mx-auto px-6 relative z-10 pt-32 pb-20">
         <div className="max-w-4xl">
           <motion.span
