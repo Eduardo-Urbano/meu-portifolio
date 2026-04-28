@@ -6,7 +6,7 @@ import { Contact } from "@/components/portfolio/Contact";
 import { useLenis } from "@/hooks/useLenis";
 
 export default function Home() {
-  useLenis();
+  //useLenis();
 
   return (
     <main className="min-h-screen bg-background text-foreground">
