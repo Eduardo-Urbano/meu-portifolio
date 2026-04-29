@@ -1,8 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
+import { wakeApisOnLoad } from "./services/wakeApis";
 
 export default function App() {
+  useEffect(() => {
+    wakeApisOnLoad();
+  }, []);
+
   return (
     <>
       <div
