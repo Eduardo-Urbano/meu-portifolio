@@ -93,7 +93,7 @@ export const projects: Project[] = [
     technologies: ["PHP", "Laravel", "Laravel Sanctum", "Blade", "SQLite", "REST API"],
     banner: newsflowBanner,
     images: [newsflow1, newsflow2, newsflow3, newsflow4],
-    link: "https://github.com/Eduardo-Urbano/laravel-news-api",
+    link: "https://newsflowapi.onrender.com/",
     year: "2026",
     role: "Back-end Developer",
   },
