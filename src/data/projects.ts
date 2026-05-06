@@ -64,10 +64,10 @@ export const projects: Project[] = [
     description: "Plataforma web para uma doceria gourmet com foco em vendas e gestão.",
     longDescription:
       "Sistema web desenvolvido para uma doceria gourmet com foco em aumentar as vendas e melhorar a gestão do negócio. A aplicação permite exibir produtos de forma organizada, facilitar o acesso dos clientes e otimizar a administração interna. Desenvolvido com front-end moderno e back-end em Java com Spring Boot, simulando um cenário real de aplicação comercial.",
-    technologies: ["HTML", "Tailwindcss", "TypeScript", "Java", "Spring Boot"],
+    technologies: ["React", "Tailwindcss", "TypeScript", "Java", "Spring Boot"],
     banner: linguBanner,
     images: [lingu1, lingu2, lingu3, lingu4],
-    link: "https://eduardo-urbano.github.io/LinguRemi/",
+    link: "https://linguremi.vercel.app/",
     year: "2025",
     role: "Full Stack Developer",
   },
