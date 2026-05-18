@@ -3,9 +3,12 @@ import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { projects, type Project } from "@/data/projects";
 import { ProjectModal } from "./ProjectModal";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 export function Projects() {
   const [active, setActive] = useState<Project | null>(null);
+
+  const { language } = useLanguage();
 
   return (
     <section id="projects" className="relative py-32">
@@ -17,12 +20,26 @@ export function Projects() {
           transition={{ duration: 0.7 }}
           className="max-w-2xl"
         >
-          <span className="text-xs uppercase tracking-[0.2em] text-accent">Trabalhos</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-accent">
+            {language === "pt" ? "Trabalhos" : "Projects"}
+          </span>
+
           <h2 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
-            Projetos <span className="text-gradient">selecionados</span>
+            {language === "pt" ? (
+              <>
+                Projetos <span className="text-gradient">selecionados</span>
+              </>
+            ) : (
+              <>
+                Selected <span className="text-gradient">projects</span>
+              </>
+            )}
           </h2>
+
           <p className="mt-4 text-muted-foreground">
-            Uma seleção de projetos full stack, aplicações web e APIs desenvolvidas para estudo, portfólio e soluções práticas.
+            {language === "pt"
+              ? "Uma seleção de projetos backend, aplicações web e APIs desenvolvidas para estudo, portfólio e soluções práticas."
+              : "A selection of backend projects, web applications, and APIs developed for learning, portfolio, and practical solutions."}
           </p>
         </motion.div>
 
@@ -40,17 +57,26 @@ export function Projects() {
                 type="button"
                 onClick={() => setActive(p)}
                 className="w-full text-left glass transition-all duration-500 hover:-translate-y-2 hover:shadow-elegant"
-                aria-label={`Ver detalhes do projeto ${p.title}`}
+                aria-label={
+                  language === "pt"
+                    ? `Ver detalhes do projeto ${p.title}`
+                    : `View details for project ${p.title}`
+                }
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src={p.banner}
-                    alt={`Banner do projeto ${p.title}`}
+                    alt={
+                      language === "pt"
+                        ? `Banner do projeto ${p.title}`
+                        : `${p.title} project banner`
+                    }
                     width={1280}
                     height={800}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+
                   <div
                     className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-90"
                     aria-hidden="true"
@@ -61,8 +87,10 @@ export function Projects() {
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <div className="text-xs text-muted-foreground">
-                        {p.year} · {p.role}
+                        {p.year} ·{" "}
+                        {language === "pt" ? p.role.pt : p.role.en}
                       </div>
+
                       <h3 className="mt-1 text-2xl font-semibold tracking-tight">
                         {p.title}
                       </h3>
@@ -74,12 +102,18 @@ export function Projects() {
                   </div>
 
                   <p className="mt-3 text-sm text-muted-foreground line-clamp-2">
-                    {p.description}
+                    {language === "pt"
+                      ? p.description.pt
+                      : p.description.en}
                   </p>
 
                   <ul
                     className="mt-4 flex flex-wrap gap-1.5"
-                    aria-label={`Tecnologias utilizadas em ${p.title}`}
+                    aria-label={
+                      language === "pt"
+                        ? `Tecnologias utilizadas em ${p.title}`
+                        : `Technologies used in ${p.title}`
+                    }
                   >
                     {p.technologies.slice(0, 4).map((t) => (
                       <li

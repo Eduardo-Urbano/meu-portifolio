@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import devPixel from "@/assets/dev-pixel.png";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const GithubSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18} {...props}>
@@ -15,6 +16,8 @@ const LinkedinSvg = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export function Hero() {
+  const { t, language } = useLanguage();
+
   return (
     <section
       id="home"
@@ -32,7 +35,10 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-muted-foreground"
           >
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-            Disponível para projetos freelancer
+
+            {language === "pt"
+              ? "Disponível para projetos freelancer"
+              : "Available for freelance projects"}
           </motion.span>
 
           <motion.h1
@@ -41,8 +47,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="mt-6 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05]"
           >
-            Olá, eu sou <br />
-            <span className="text-gradient">Eduardo Urbano</span>
+            {t.hero.greeting} <br />
+            <span className="text-gradient">{t.hero.name}</span>
           </motion.h1>
 
           <motion.p
@@ -51,9 +57,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed"
           >
-            Desenvolvedor full stack focado em transformar ideias em aplicações web funcionais.
-            Trabalho com React, TypeScript e integração com APIs, criando soluções simples,
-            rápidas e prontas para uso.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -66,17 +70,19 @@ export function Hero() {
               href="#projects"
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-3 font-medium text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
             >
-              Ver projetos
+              {t.hero.primaryButton}
+
               <ArrowRight
                 size={18}
                 className="transition-transform group-hover:translate-x-1"
               />
             </a>
+
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 font-medium text-foreground transition-colors hover:bg-foreground/10"
             >
-              Entrar em contato
+              {t.hero.secondaryButton}
             </a>
 
             <div className="flex items-center gap-2 ml-2">
@@ -84,16 +90,17 @@ export function Hero() {
                 href="https://github.com/Eduardo-Urbano"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Acessar GitHub de Eduardo Urbano"
+                aria-label="GitHub"
                 className="rounded-full glass p-3 text-muted-foreground transition-colors hover:text-foreground"
               >
                 <GithubSvg />
               </a>
+
               <a
                 href="https://www.linkedin.com/in/edu-urbano/"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Acessar LinkedIn de Eduardo Urbano"
+                aria-label="LinkedIn"
                 className="rounded-full glass p-3 text-muted-foreground transition-colors hover:text-foreground"
               >
                 <LinkedinSvg />
@@ -119,12 +126,15 @@ export function Hero() {
             aria-hidden="true"
           >
             <div className="relative">
-
               <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full scale-125" />
 
               <img
                 src={devPixel}
-                alt="Ilustração em pixel art de Eduardo Urbano programando no espaço"
+                alt={
+                  language === "pt"
+                    ? "Ilustração em pixel art de Eduardo Urbano programando no espaço"
+                    : "Pixel art illustration of Eduardo Urbano coding in space"
+                }
                 className="
                   pixel-hero
                   scale-x-[-1]
@@ -139,31 +149,13 @@ export function Hero() {
               />
             </div>
           </div>
-
-          {/*<motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="mt-20 grid grid-cols-3 max-w-md gap-6"
-          >
-            {[
-              { k: "5+", v: "Anos exp." },
-              { k: "40+", v: "Projetos" },
-              { k: "30+", v: "Clientes" },
-            ].map((s) => (
-              <div key={s.v}>
-                <div className="text-3xl font-bold text-gradient">{s.k}</div>
-                <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
-              </div>
-            ))}
-          </motion.div>*/}
         </div>
       </div>
+
       <div
         className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-background pointer-events-none"
         aria-hidden="true"
       />
     </section>
-    
   );
 }
